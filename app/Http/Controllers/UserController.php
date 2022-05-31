@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Traits\IncModelsTrait;
 use Illuminate\Http\Request;
 
@@ -73,11 +74,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, User $user)
     {
-        //
-        $this->user->a_level = $request->a_level;
-        //
+        $user->a_level = $request->a_level;
+        $user->save();
         return back()->with('msg', trans('site.msg_u'));
     }
 
