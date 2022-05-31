@@ -5,8 +5,8 @@
 @section('content')
     <div class="w3-clear">
         <div class="container">
-            <div class="row justify-content-center" >
-                <div class="col-md-12" >
+            <div class="row justify-content-center">
+                <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
                             <h1>{{ __('site.books_details') }}</h1>
@@ -23,6 +23,7 @@
                                             <b class="3">
                                                 <h2 class="text-center w3-xxlarge">{{ $book->title }}</h2>
                                             </b>
+
                                             <ul class="w3-ul">
                                                 <span class="d-block my-5">
                                                     @if ($book->authors->isNotEmpty())
@@ -34,16 +35,19 @@
                                                             @endforeach
                                                         </li>
                                                     @endif
-                                                    <li class="w3-border-bottom"><b>الفئة: </b> {{ $book->category->name }}
+                                                    <li class="w3-border-bottom"><b>الفئة: </b>
+                                                        {{ $book->category->name }}
                                                     </li>
-                                                    <li class="w3-border-bottom"><b>الناشر: </b> {{ $book->publisher->name }}
+                                                    <li class="w3-border-bottom"><b>الناشر: </b>
+                                                        {{ $book->publisher->name }}
                                                     </li>
                                                     @if ($book->isbn > 0)
                                                         <li class="w3-border-bottom"><b>الرقم العالمي الموحد للكتاب: </b>
                                                             {{ $book->isbn }}</li>
                                                     @endif
                                                     <li class="w3-border-bottom"><b>الوصف: </b> {{ $book->desc }}</li>
-                                                    <li class="w3-border-bottom w3-center"><b class="w3-block">تاريخ ووقت
+                                                    <li class="w3-border-bottom w3-center"><b class="w3-block">تاريخ
+                                                            ووقت
                                                             النشر: </b>
                                                         <span class="d-inline-block"
                                                             dir="ltr">{{ $book->publish_year }}</span>
@@ -55,8 +59,13 @@
                                                     <li class="w3-border-bottom"><b>عدد النسخ: </b>
                                                         {{ $book->number_of_copies }}
                                                     </li>
+                                                    <li class="w3-border-bottom w3-center">
+                                                        <b>تقييمات المستخدمين: </b>
+                                                        @include('inc.ratings')
+                                                    </li>
                                                     <li>
-                                                        <h3 class="w3-xxxlarge text-danger text-center">{{ $book->price }} $
+                                                        <h3 class="w3-xxxlarge text-danger text-center">
+                                                            {{ $book->price }} $
                                                         </h3>
                                                     </li>
                                                 </span>
@@ -64,7 +73,7 @@
                                         </div>
                                     </div>
                                 @endif
-    
+
                             </div>
                         </div>
                     </div>

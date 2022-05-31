@@ -39,4 +39,14 @@ class Book extends Model
         # code...
         return $this->belongsToMany(Author::class, 'book_authors', 'book_id', 'author_id', 'id', 'id');
     }
+    //
+    public function ratings(){
+        return $this->hasMany(Rating::class);
+    }
+    //
+    public function rate()
+    {
+        # code...
+        return $this->ratings->isNotEmpty() ? $this->ratings->sum('value') / $this->ratings->count() : 0;
+    }
 }

@@ -12,6 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,6 +21,79 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!--ICON-->
+    <link rel="stylesheet" href="{{ asset('css/icons/fontawesome-free-6.1.1-web/css/all.css') }}">
+    <!--custom css-->
+    <style>
+        .score {
+            display: block;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .score-wrap {
+            display: inline-block;
+            position: relative;
+            height: 19px;
+        }
+
+        .score .stars-active {
+            color: #FFCA00;
+            position: relative;
+            z-index: 10;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .score .stars-inactive {
+            color: lightgrey;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .rating {
+            overflow: hidden;
+            display: inline-block;
+            position: relative;
+            font-size: 20px;
+        }
+
+        .rating-star {
+            padding: 0 5px;
+            margin: 0;
+            cursor: pointer;
+            display: block;
+            float: left;
+        }
+
+        .rating-star:after {
+            position: relative;
+            font-family: "Font Awesome 5 Free";
+            content: '\f005';
+            color: lightgrey;
+        }
+
+        .rating-star.checked~.rating-star:after,
+        .rating-star.checked:after {
+            content: '\f005';
+            color: #FFCA00;
+        }
+
+        .rating:hover .rating-star:after {
+            content: '\f005';
+            color: lightgrey;
+        }
+
+        .rating-star:hover~.rating-star:after,
+        .rating .rating-star:hover:after {
+            content: '\f005';
+            color: #FFCA00;
+        }
+
+    </style>
 </head>
 
 <body dir="rtl" style="text-align: right!important">
@@ -100,8 +174,9 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                                                     document.getElementById('logout-form').submit();">
                                             {{ __('site.logout') }}
                                         </a>
                                         @can('update-books')
@@ -125,6 +200,7 @@
             @yield('content')
         </main>
     </div>
+    @yield('script')
 </body>
 
 </html>

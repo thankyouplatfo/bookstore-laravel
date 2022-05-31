@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\Rating;
 use App\Models\User;
-use App\Models\ratings;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class RatingsPolicy
+class RatingPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class RatingsPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ratings  $ratings
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, ratings $ratings)
+    public function view(User $user, Rating $rating)
     {
         //
     }
@@ -48,10 +48,10 @@ class RatingsPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ratings  $ratings
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, ratings $ratings)
+    public function update(User $user, Rating $rating)
     {
         //
     }
@@ -60,10 +60,10 @@ class RatingsPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ratings  $ratings
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, ratings $ratings)
+    public function delete(User $user, Rating $rating)
     {
         //
     }
@@ -72,10 +72,10 @@ class RatingsPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ratings  $ratings
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, ratings $ratings)
+    public function restore(User $user, Rating $rating)
     {
         //
     }
@@ -84,10 +84,10 @@ class RatingsPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ratings  $ratings
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, ratings $ratings)
+    public function forceDelete(User $user, Rating $rating)
     {
         //
     }

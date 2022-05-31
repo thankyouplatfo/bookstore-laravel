@@ -53,6 +53,10 @@
                                                 <li class="w3-border-bottom"><b>عدد النسخ: </b>
                                                     {{ $book->number_of_copies }}
                                                 </li>
+                                                <li class="w3-border-bottom">
+                                                    <b>تقييمات المستخدمين: </b>
+                                                    @include('inc.ratings')
+                                                </li>
                                                 <li>
                                                     <h3 class="w3-xxxlarge text-danger text-center">{{ $book->price }} $
                                                     </h3>

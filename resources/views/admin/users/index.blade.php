@@ -57,10 +57,10 @@
                     </td>
                     <td class="w3-center">
                         @if (auth()->user() != $user)
-                            <button type="submit" class="btn btn-danger" form="del-user"
+                            <button type="submit" class="btn btn-danger" form="del-user{{ $user->id }}"
                                 onclick="return confirm('هل أنت متأكد ؟')"><i class="fa-solid fa-trash"></i></button>
                         @else
-                            <button type="submit" class="btn btn-danger" form="del-user"
+                            <button type="submit" class="btn btn-danger" form="del-user{{ $user->id }}"
                                 onclick="return confirm('هل أنت متأكد ؟');this.form.submit()" disabled><i
                                     class="fa-solid fa-trash"></i></button>
                         @endif
@@ -70,7 +70,7 @@
                     @csrf
                     @method('PUT')
                 </form>
-                <form method="POST" action="{{ route('users.destroy', $user->id) }}" id="del-user">
+                <form method="POST" action="{{ route('users.destroy', $user->id) }}" id="del-user{{ $user->id }}">
                     @csrf
                     @method('DELETE')
                 </form>

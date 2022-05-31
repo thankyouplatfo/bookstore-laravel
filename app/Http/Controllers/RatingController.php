@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ratings;
-use App\Http\Requests\StoreratingsRequest;
-use App\Http\Requests\UpdateratingsRequest;
+use App\Models\Rating;
+use App\Http\Requests\StoreRatingRequest;
+use App\Http\Requests\UpdateRatingRequest;
 
-class RatingsController extends Controller
+class RatingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class RatingsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreratingsRequest  $request
+     * @param  \App\Http\Requests\StoreRatingRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreratingsRequest $request)
+    public function store(StoreRatingRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class RatingsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ratings  $ratings
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function show(ratings $ratings)
+    public function show(Rating $rating)
     {
         //
     }
@@ -53,10 +53,10 @@ class RatingsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ratings  $ratings
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function edit(ratings $ratings)
+    public function edit(Rating $rating)
     {
         //
     }
@@ -64,11 +64,11 @@ class RatingsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateratingsRequest  $request
-     * @param  \App\Models\ratings  $ratings
+     * @param  \App\Http\Requests\UpdateRatingRequest  $request
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateratingsRequest $request, ratings $ratings)
+    public function update(UpdateRatingRequest $request, Rating $rating)
     {
         //
     }
@@ -76,10 +76,10 @@ class RatingsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ratings  $ratings
+     * @param  \App\Models\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ratings $ratings)
+    public function destroy(Rating $rating)
     {
         //
     }

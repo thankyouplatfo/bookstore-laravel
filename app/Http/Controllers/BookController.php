@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{User, Author, Book, Category, Publisher};
+use App\Models\{User, Author, Book, Category, Publisher, Rating};
 use App\Http\Requests\StorebookRequest;
 use App\Http\Requests\UpdatebookRequest;
 use App\Traits\ImageUploadTrait;
 use App\Traits\IncModelsTrait;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
@@ -132,5 +133,23 @@ class BookController extends Controller
     {
         # code...
         return view('books.details', compact('book'));
+    }
+    //
+    public function rate(Request $request, Book $book)
+    {
+        # code...
+        if (auth()->user()->rated($book)) {
+            # code...
+            $rating = $this->rating->where(['user_id' => auth()->user()->id, 'book_id' => $book->id])->first();
+            $rating->value = $request->value;
+            $rating->save();
+        } else {
+            $rating = new Rating;
+            $rating->user_id = auth()->user()->id;
+            $rating->book_id = $book->id;
+            $rating->value = $request->value;
+            $rating->save();
+        }
+        return back();
     }
 }

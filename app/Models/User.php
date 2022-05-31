@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -52,6 +51,21 @@ class User extends Authenticatable
     {
         return $this->admin_level > 1 ? true : false;
     }
-
-    
+    //
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
+    //
+    public function rated(Book $book)
+    {
+        # code...
+        return $this->ratings->where('book_id', $book->id)->isNotEmpty();
+    }
+    //
+    public function bookRating(Book $book)
+    {
+        # code...
+        return $this->rated($book) ? $this->ratings->where('book_id', $book->id)->first() : NULL;
+    }
 }

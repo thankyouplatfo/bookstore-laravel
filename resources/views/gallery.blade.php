@@ -38,6 +38,7 @@
                                                         <p class="p-0 m-0 pt-2">{{ $book->title }}</p>
                                                     </a>
                                                 </b>
+                                                @include('inc.ratings')
                                                 @if ($book->category != null)
                                                     <a href="{{ route('gallery.categories.show', $book->category) }}"
                                                         style="color:grey">{{ $book->category->name }}</a> <br>
