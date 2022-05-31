@@ -44,12 +44,12 @@ class User extends Authenticatable
     //
     public function isAdmin()
     {
-        return $this->administration_level > 0 ? true : false;
+        return $this->a_level > 0 ? true : false;
     }
 
     public function isSuperAdmin()
     {
-        return $this->administration_level > 1 ? true : false;
+        return $this->a_level > 1 ? true : false;
     }
 
     
