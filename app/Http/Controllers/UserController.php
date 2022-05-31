@@ -76,7 +76,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->a_level = $request->a_level;
+        $user->admin_level = $request->admin_level;
         $user->save();
         return back()->with('msg', trans('site.msg_u'));
     }

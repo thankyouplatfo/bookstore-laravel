@@ -34,22 +34,19 @@
                     </td>
                     <td>
                         @if (auth()->user() != $user)
-                            <form method="POST" action="{{ route('users.update', $user->id) }}">@csrf
-                                @method('PUT')
-                                <select class="w3-input a_level" name="a_level" id="a_level" form="upd-user">
-                                    <option value="0">مستخدم</option>
-                                    <option value="1">مدير</option>
-                                    <option value="2">مدير عام</option>
-                                </select>
-                                <button type="submit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></button>
-                            </form>
+                            <select class="w3-input admin_level" name="admin_level" id="admin_level" form="admi-level-edit"
+                                onchange="this.form.submit()">
+                                <option value="0" {{ $user->admin_level === 0 ? 'selected' : '' }}>مستخدم</option>
+                                <option value="1" {{ $user->admin_level === 1 ? 'selected' : '' }}>مدير</option>
+                                <option value="2" {{ $user->admin_level === 2 ? 'selected' : '' }}>مدير عام</option>
+                            </select>
+                            {{-- <button type="submit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></button> --}}
                         @else
-                            <select class="w3-input a_level" name="a_level" id="a_level" onchange="this.form.submit()"
-                                form="upd-user" disabled>
-                                <option value="0">مستخدم</option>
-                                <option value="1">مدير</option>
-                                <option value="2">مدير عام</option>
-                                
+                            <select class="w3-input admin_level" name="admin_level" id="admin_level" form="upd-user"
+                                disabled>
+                                <option value="0" {{ $user->admin_level === 0 ? 'selected' : '' }}>مستخدم</option>
+                                <option value="1" {{ $user->admin_level === 1 ? 'selected' : '' }}>مدير</option>
+                                <option value="2" {{ $user->admin_level === 2 ? 'selected' : '' }}>مدير عام</option>
                             </select>
                         @endif
                     </td>
@@ -64,14 +61,18 @@
                                 onclick="return confirm('هل أنت متأكد ؟')"><i class="fa-solid fa-trash"></i></button>
                         @else
                             <button type="submit" class="btn btn-danger" form="del-user"
-                                onclick="return confirm('هل أنت متأكد ؟')" disabled><i
+                                onclick="return confirm('هل أنت متأكد ؟');this.form.submit()" disabled><i
                                     class="fa-solid fa-trash"></i></button>
                         @endif
                     </td>
                 </tr>
-
-                <form method="POST" action="{{ route('users.update', $user->id) }}" id="upd-user">@csrf
+                <form method="POST" action="{{ route('users.update', $user->id) }}" id="upd-user">
+                    @csrf
                     @method('PUT')
+                </form>
+                <form method="POST" action="{{ route('users.destroy', $user->id) }}" id="del-user">
+                    @csrf
+                    @method('DELETE')
                 </form>
             @endforeach
         </table>

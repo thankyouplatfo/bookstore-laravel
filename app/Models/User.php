@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'admin_level',
         'password',
     ];
 
@@ -44,12 +45,12 @@ class User extends Authenticatable
     //
     public function isAdmin()
     {
-        return $this->a_level > 0 ? true : false;
+        return $this->admin_level > 0 ? true : false;
     }
 
     public function isSuperAdmin()
     {
-        return $this->a_level > 1 ? true : false;
+        return $this->admin_level > 1 ? true : false;
     }
 
     
