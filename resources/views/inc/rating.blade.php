@@ -23,4 +23,25 @@
     @endif
 @endauth
 @section('script')
+    <script>
+        $('.rating-star').click(function() {
+            var submitStarts = $(this).attr('data-value');
+            //
+            $.ajax({
+                type: 'post',
+                url: {{ $book->id }} + '/rate',
+                data: {
+                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                    'value': submitStarts
+                },
+                success:function(){
+                    alert({{ __('site.rating_s') }}),
+                    location:reload(),
+                }
+                errorr:function(){
+                    alert({{ __('site.rating_e') }}),
+                }
+            })
+        });
+    </script>
 @endsection

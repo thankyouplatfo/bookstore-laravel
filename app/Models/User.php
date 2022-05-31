@@ -59,13 +59,11 @@ class User extends Authenticatable
     //
     public function rated(Book $book)
     {
-        # code...
         return $this->ratings->where('book_id', $book->id)->isNotEmpty();
     }
     //
     public function bookRating(Book $book)
     {
-        # code...
         return $this->rated($book) ? $this->ratings->where('book_id', $book->id)->first() : NULL;
     }
 }

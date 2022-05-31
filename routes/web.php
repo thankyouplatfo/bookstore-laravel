@@ -31,6 +31,7 @@ Route::get('/', [GalleryController::class, 'index'])->name('gallery.index');
 Route::get('/search', [GalleryController::class, 'search'])->name('search');
 //
 Route::get('book/{book}', [BookController::class, 'details'])->name('book.details');
+Route::post('/book/{book}/rate', 'BooksController@rate')->name('book.rate');
 //
 Route::get('/categories', [CategoryController::class, 'list'])->name('gallery.categories.index');
 Route::get('/categories/search', [CategoryController::class, 'search'])->name('gallery.categories.search');
@@ -54,4 +55,4 @@ Route::prefix('/admin')->middleware('can:update-books')->group(function () {
     Route::resource('users', UserController::class)->middleware('can:update-users');
 });
 //
-Route::post('/book/{book}/rate',[Book::class,'rate'])->name('book.rate');
+Route::post('/book/{book}/rate', [Book::class, 'rate'])->name('book.rate');
