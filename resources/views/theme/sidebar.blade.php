@@ -13,10 +13,10 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active text-right">
-        <a class="nav-link w3-xlarge text-right {{ request()->is('admin') ? 'active' : '' }}"
+        <a class="nav-link text-right  {{ request()->is('admin') ? 'active' : '' }}"
             href="{{ route('admin.index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>{{ __('site.dashboard') }}</span></a>
+            <i class="  w3-xlarge  fas fa-fw fa-tachometer-alt"></i>
+            <span class=" w3-xlarge ">{{ __('site.dashboard') }}</span></a>
     </li>
 
     <!-- Divider -->
@@ -24,10 +24,10 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link w3-xlarge text-right {{ request()->is('admin/books') ? 'active' : '' }}"
+        <a class="nav-link text-right  {{ request()->is('admin/books') ? 'active' : '' }}"
             href="{{ route('books.index') }}">
-            <i class="fa-solid fa-book"></i>
-            <span>{{ __('site.books') }}</span>
+            <i class="  w3-xlarge  fa-solid fa-book"></i>
+            <span class=" w3-xlarge ">{{ __('site.books') }}</span>
         </a>
     </li>
 
@@ -37,36 +37,35 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link w3-xlarge text-right {{ request()->is('admin/categories') ? 'active' : '' }}"
-            href="{{ route('categories.index') }}" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
-            <i class="fa-solid fa-puzzle-piece"></i>
-            <span>{{ __('site.categories') }}</span>
+        <a class="nav-link text-right  {{ request()->is('admin/categories') ? 'active' : '' }}"
+            href="{{ route('categories.index') }}">
+            <i class="  w3-xlarge  fa-solid fa-puzzle-piece"></i>
+            <span class=" w3-xlarge ">{{ __('site.categories') }}</span>
         </a>
     </li>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link w3-xlarge text-right {{ request()->is('admin/authors') ? 'active' : '' }}"
+        <a class="nav-link text-right  {{ request()->is('admin/authors') ? 'active' : '' }}"
             href="{{ route('authors.index') }}">
-            <i class="fa-solid fa-pencil"></i>
-            <span>{{ __('site.authors') }}</span></a>
+            <i class="  w3-xlarge  fa-solid fa-pencil"></i>
+            <span class=" w3-xlarge ">{{ __('site.authors') }}</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link w3-xlarge text-right {{ request()->is('admin/publishers') ? 'active' : '' }}"
+        <a class="nav-link text-right  {{ request()->is('admin/publishers') ? 'active' : '' }}"
             href="{{ route('publishers.index') }}">
-            <i class="fa-solid fa-upload"></i>
-            <span>{{ __('site.publishers') }}</span></a>
+            <i class="  w3-xlarge  fa-solid fa-upload"></i>
+            <span class=" w3-xlarge ">{{ __('site.publishers') }}</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link w3-xlarge text-right {{ request()->is('admin/users') ? 'active' : '' }}"
+        <a class="nav-link text-right  {{ request()->is('admin/users') ? 'active' : '' }}"
             href="{{ route('users.index') }}">
-            <i class="fa-solid fa-users"></i>
-            <span>{{ __('site.users') }}</span></a>
+            <i class="  w3-xlarge  fa-solid fa-users"></i>
+            <span class=" w3-xlarge ">{{ __('site.users') }}</span></a>
     </li>
 
     <!-- Divider -->

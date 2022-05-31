@@ -7,7 +7,7 @@
 @endsection
 @section('content')
 @section('content')
-    <form action="{{ route('categories.update', $publisher->id) }}" method="post" class="w3-row-padding"
+    <form action="{{ route('publishers.update', $publisher->id) }}" method="post" class="w3-row-padding"
         enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -19,9 +19,9 @@
             @enderror
         </p>
         <p class="w3-col w3-right">
-            <label class="w3-large" for="desc">العنوان</label>
-            <textarea class="w3-input w3-large desc" name="desc" id="desc" cols="30" rows="10">{{ $publisher->address }}</textarea>
-            @error('desc')
+            <label class="w3-large" for="address">العنوان</label>
+            <textarea class="w3-input w3-large address" name="address" id="address" cols="30" rows="10">{{ $publisher->address }}</textarea>
+            @error('address')
                 <b class="err">{{ $message }}</b>
             @enderror
         </p>

@@ -19,7 +19,7 @@ class PublisherController extends Controller
     public function index()
     {
         //
-        $publishers = $this->publisher->orderBy('name', 'desc')->paginate(10);
+        $publishers = $this->publisher->orderBy('id', 'desc')->paginate(10);
         //
         $title = 'الناشرون';
         //

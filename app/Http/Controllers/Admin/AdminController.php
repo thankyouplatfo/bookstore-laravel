@@ -4,24 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\{User, Author, Book, Category, Publisher};
+use App\Traits\IncModelsTrait;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public $author;
-    public $book;
-    public $category;
-    public $publisher;
-    public $user;
-    //
-    public function __construct(Author $author, Book $book, Category $category, Publisher $publisher, User $user)
-    {
-        $this->author = $author;
-        $this->book = $book;
-        $this->category = $category;
-        $this->publisher = $publisher;
-        $this->user = $user;
-    }
+    use IncModelsTrait;
     /**
      * Display a listing of the resource.
      *

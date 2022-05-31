@@ -23,4 +23,9 @@ trait IncModelsTrait
         $this->user = $user;
         $this->carbon = $carbon;
     }
+    //
+    //public function successCRUD()
+    //{
+    //    # code...
+    //}
 }

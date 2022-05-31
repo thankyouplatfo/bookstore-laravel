@@ -55,6 +55,11 @@
                                         </div>
                                     @endif
                                 @endforeach
+                                <div class="w3-center my-3">
+                                    <div class="d-inline-block">
+                                        {{ $books->links() }}
+                                    </div>
+                                </div>
                             @else
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"

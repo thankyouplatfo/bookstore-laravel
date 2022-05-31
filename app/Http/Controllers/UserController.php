@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\IncModelsTrait;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    use IncModelsTrait;
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +16,9 @@ class UserController extends Controller
     public function index()
     {
         //
+        $users = $this->user->orderBy('id', 'desc')->paginate(10);
+        //
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -35,6 +40,8 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+
+
     }
 
     /**
@@ -66,9 +73,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        $this->user->a_level = $request->a_level;
+        //
+        return back()->with('msg', trans('site.msg_u'));
     }
 
     /**
@@ -80,5 +90,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        $this->user->find($id)->delete();
+        //
+        return back()->with('msg', trans('site.msg_d'));
     }
 }

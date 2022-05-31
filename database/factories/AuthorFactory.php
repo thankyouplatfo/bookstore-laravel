@@ -15,7 +15,8 @@ class AuthorFactory extends Factory
     {
         return [
             //
-            'name' => $this->faker->name()
+            'name' => $this->faker->name(),
+            'desc' => $this->faker->realText(255)
         ];
     }
 }

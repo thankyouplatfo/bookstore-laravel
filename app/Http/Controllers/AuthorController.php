@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\author;
 use App\Http\Requests\StoreauthorRequest;
 use App\Http\Requests\UpdateauthorRequest;
+use App\Traits\IncModelsTrait;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
+    use IncModelsTrait;
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +19,9 @@ class AuthorController extends Controller
     public function index()
     {
         //
+        $authors = $this->author->orderBy('id','desc')->paginate(10);
+        //
+        return view('admin.authors.index', compact('authors'));
     }
 
     /**
@@ -27,6 +32,7 @@ class AuthorController extends Controller
     public function create()
     {
         //
+        return view('admin.authors.create');
     }
 
     /**
@@ -38,6 +44,9 @@ class AuthorController extends Controller
     public function store(StoreauthorRequest $request)
     {
         //
+        $this->author->create($request->all());
+        //
+        return back()->with('msg', trans('site.msg_c'));
     }
 
     /**
@@ -48,7 +57,7 @@ class AuthorController extends Controller
      */
     public function show(author $author)
     {
-        
+        //return view('admin.authors.edit', compact('author'));
     }
 
     /**
@@ -60,6 +69,7 @@ class AuthorController extends Controller
     public function edit(author $author)
     {
         //
+        return view('admin.authors.edit', compact('author'));
     }
 
     /**
@@ -72,6 +82,9 @@ class AuthorController extends Controller
     public function update(UpdateauthorRequest $request, author $author)
     {
         //
+        $this->author->find($author->id)->update($request->all());
+        //
+        return back()->with('msg', trans('site.msg_u'));
     }
 
     /**
@@ -83,17 +96,20 @@ class AuthorController extends Controller
     public function destroy(author $author)
     {
         //
+        $this->author->find($author->id)->delete();
+        //
+        return back()->with('msg', trans('site.msg_d'));
     }
     //
     public function result(Author $author)
     {
         # code...
         //
-        $books = $author->books()->paginate(10);
+        $authors = $author->authors()->paginate(10);
         //
         $title = ' الكتب التابعة للمؤلف:' . '   ' . $author->name;
         //
-        return view('gallery', compact('books', 'title'));
+        return view('gallery', compact('authors', 'title'));
     }
     //
     public function list(Author $author)
