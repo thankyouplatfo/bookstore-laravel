@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PublisherController;
@@ -56,3 +57,5 @@ Route::prefix('/admin')->middleware('can:update-books')->group(function () {
 });
 //
 Route::post('/book/{book}/rate', [Book::class, 'rate'])->name('book.rate');
+//
+Route::post('/cart',[CartController::class,'addToCart'])->name('cart.add');

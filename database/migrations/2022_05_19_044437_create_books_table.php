@@ -23,6 +23,7 @@ class CreateBooksTable extends Migration
             $table->string('publish_year')->nullable();
             $table->string('number_of_pages')->nullable();
             $table->string('number_of_copies')->nullable();
+            $table->boolean('bought')->default(FALSE);
             $table->decimal('price',8,2);
             $table->string('cover_image');
             $table->timestamps();

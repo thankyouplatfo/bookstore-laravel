@@ -1,4 +1,4 @@
-@auth
+{{-- @auth
     @if (auth()->user()->ratings($book))
         <div class="rating">
             <span class="rating-star {{ auth()->user()->bookRating($book)->value == 5? 'checked': '' }}"
@@ -21,7 +21,7 @@
             <span class="rating-star" data-value="1"></span>
         </div>
     @endif
-@endauth
+@endauth --}}
 @section('script')
     <script>
         $('.rating-star').click(function() {
@@ -34,11 +34,11 @@
                     '_token': $('meta[name="csrf-token"]').attr('content'),
                     'value': submitStarts
                 },
-                success:function(){
+                success: function() {
                     alert({{ __('site.rating_s') }}),
-                    location:reload(),
+                        location: reload(),
                 }
-                errorr:function(){
+                errorr: function() {
                     alert({{ __('site.rating_e') }}),
                 }
             })

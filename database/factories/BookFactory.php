@@ -25,6 +25,7 @@ class BookFactory extends Factory
             "publish_year" => $this->faker->dateTimeThisYear("+12 months"),
             "number_of_pages" => $this->faker->numberBetween(1, 255),
             "number_of_copies" => $this->faker->numberBetween(1, 255),
+            //"bought" => $this->faker->number_format(0,1),
             "price" => $this->faker->numberBetween(1, 2590),
             "cover_image" => $this->faker->imageUrl(500, 500, Str::slug(config('app.name')), false),
         ];

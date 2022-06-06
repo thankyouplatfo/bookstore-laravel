@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-use App\Models\{User, Author, Book, Category, Publisher, Rating};
+use App\Models\{User, Author, Book, Cart, Category, Publisher, Rating};
 use Carbon\Carbon;
 
 trait IncModelsTrait
@@ -14,8 +14,9 @@ trait IncModelsTrait
     public $user;
     public $carbon;
     public $rating;
+    public $cart;
     //
-    public function __construct(Author $author, Book $book, Category $category, Publisher $publisher, User $user, Carbon $carbon, Rating $rating)
+    public function __construct(Author $author, Book $book, Category $category, Publisher $publisher, User $user, Carbon $carbon, Rating $rating, Cart $cart)
     {
         $this->author = $author;
         $this->book = $book;
@@ -24,6 +25,7 @@ trait IncModelsTrait
         $this->user = $user;
         $this->carbon = $carbon;
         $this->rating = $rating;
+        $this->cart = $cart;
     }
     //
     //public function successCRUD()
